@@ -39,4 +39,12 @@ public class AuthorService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public AuthorDTO getByIdPersonalizedQuery(Long id){
+        AuthorDTO authorDTO = this.repository.getByIdPersonalizedQuery(id);
+        return authorDTO;
+
+
+    }
+
 }

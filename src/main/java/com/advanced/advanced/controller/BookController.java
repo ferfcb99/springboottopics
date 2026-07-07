@@ -48,4 +48,13 @@ public class BookController {
         service.delete(id);
         return ResponseEntity.ok(new ResponseAPI<>("200", "Deleted", null));
     }
+
+    @GetMapping("/get-by-id-personalized-query/{id}")
+    public ResponseEntity<ResponseAPI<BookDTO>> getByIdPersonalizedQuery(@PathVariable("id") Long id){
+
+        BookDTO bookDTO = this.service.getByIdPersonalizedQuery(id);
+        return ResponseEntity.status(200)
+                .body(new ResponseAPI<>("200", "Success", bookDTO));
+
+    }
 }

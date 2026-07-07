@@ -50,4 +50,8 @@ public class BookService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+    public BookDTO getByIdPersonalizedQuery(Long id){
+        return this.repository.findBookByIdPersonalizedQuery(id);
+    }
 }

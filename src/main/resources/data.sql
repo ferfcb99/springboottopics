@@ -8,6 +8,8 @@ INSERT INTO authors (name) VALUES ('Agatha Christie');
 INSERT INTO authors (name) VALUES ('Neil Gaiman');
 INSERT INTO authors (name) VALUES ('Terry Pratchett');
 INSERT INTO authors (name) VALUES ('Arthur Conan Doyle');
+INSERT INTO authors (name) VALUES ('Brandon Sanderson');
+INSERT INTO authors (name) VALUES ('Brandon Sanderson');
 
 -- Author 1: J.R.R. Tolkien
 INSERT INTO books (title, author_id) VALUES ('The Hobbit', 1);

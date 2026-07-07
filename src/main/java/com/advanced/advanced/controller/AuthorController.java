@@ -4,6 +4,7 @@ import com.advanced.advanced.dto.AuthorDTO;
 import com.advanced.advanced.payload.ResponseAPI;
 import com.advanced.advanced.service.AuthorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,4 +49,21 @@ public class AuthorController {
         service.delete(id);
         return ResponseEntity.ok(new ResponseAPI<>("200", "Deleted", null));
     }
+
+    @GetMapping(path = "/get-by-id-personalized-query/{id}")
+    public ResponseEntity<ResponseAPI<AuthorDTO>> getByIdPersonalizedQuery(@PathVariable("id") Long id){
+        AuthorDTO authorDTO = service.getByIdPersonalizedQuery(id);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTO));
+    }
+
+
+    // crear un endpoint que devuelva una lista de elementos de tipo AuthorDto que se calculen en base a un nombre
+
+
+    // crear un endpoint que devuelva una lista de elementos de todos los autores que contengan una letra que es
+    // enviada por parametro en el endpoint, like
+
+    // crear un endpoint que devuelva el primer autor de la consulta de todos los autor
+
 }

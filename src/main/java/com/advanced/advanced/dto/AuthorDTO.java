@@ -1,9 +1,18 @@
 package com.advanced.advanced.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class AuthorDTO {
     private Long id;
     private String name;
+
+
+
+
 }
+

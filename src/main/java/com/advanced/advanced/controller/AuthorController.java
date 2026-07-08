@@ -56,10 +56,14 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseAPI<>("200", "Success", authorDTO));
     }
-
-
     // crear un endpoint que devuelva una lista de elementos de tipo AuthorDto que se calculen en base a un nombre
+    @GetMapping(path = "/get-by-name/{name}")
+    public ResponseEntity<ResponseAPI<List<AuthorDTO>>> geyByName(@PathVariable("name") String name){
+        List<AuthorDTO> authorDTO = service.getByName(name);
 
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTO));
+    }
 
     // crear un endpoint que devuelva una lista de elementos de todos los autores que contengan una letra que es
     // enviada por parametro en el endpoint, like

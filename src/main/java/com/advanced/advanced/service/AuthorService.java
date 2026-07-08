@@ -7,6 +7,7 @@ import com.advanced.advanced.repository.AuthorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +44,11 @@ public class AuthorService {
     public AuthorDTO getByIdPersonalizedQuery(Long id){
         AuthorDTO authorDTO = this.repository.getByIdPersonalizedQuery(id);
         return authorDTO;
+    }
+    public List<AuthorDTO> getByName(String name){
 
+        List<AuthorDTO> authorDTOS = repository.getByName(name);
+        return authorDTOS;
 
     }
 

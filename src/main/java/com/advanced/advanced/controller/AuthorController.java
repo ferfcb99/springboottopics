@@ -64,10 +64,24 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseAPI<>("200", "Success", authorDTO));
     }
-
     // crear un endpoint que devuelva una lista de elementos de todos los autores que contengan una letra que es
     // enviada por parametro en el endpoint, like
+    @GetMapping(path = "/get-by-word/{word}")
+    public ResponseEntity<ResponseAPI<List<AuthorDTO>>> getByWord(@PathVariable("word") String word){
+        List<AuthorDTO> authorDTO = service.getByWord(word);
 
-    // crear un endpoint que devuelva el primer autor de la consulta de todos los autor
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTO));
+    }
+
+    // crear un endpoint que devuelva el primer autor de la consulta de todos los autores
+    @GetMapping(path = "/get-first-author")
+    public ResponseEntity<ResponseAPI<AuthorDTO>> getFirstAuthor(){
+        AuthorDTO authorDTO1 = this.service.getFirstAuthor();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTO1));
+
+    }
 
 }

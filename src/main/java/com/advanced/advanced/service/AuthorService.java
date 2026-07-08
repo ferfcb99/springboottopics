@@ -47,8 +47,19 @@ public class AuthorService {
     }
     public List<AuthorDTO> getByName(String name){
 
-        List<AuthorDTO> authorDTOS = repository.getByName(name);
+        List<AuthorDTO> authorDTOS = this.repository.getByName(name);
         return authorDTOS;
+
+    }
+    public List<AuthorDTO> getByWord(String word){
+        List<AuthorDTO> authorDTO = this.repository.getByWord(word);
+        return authorDTO;
+    }
+    public AuthorDTO getFirstAuthor(){
+        List<AuthorDTO> authorDTOS = this.repository.getFirstAuthor();
+
+        return authorDTOS.get(0);
+
 
     }
 

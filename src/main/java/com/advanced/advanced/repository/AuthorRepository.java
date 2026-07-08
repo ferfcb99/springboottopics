@@ -16,8 +16,14 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     @Query("SELECT new com.advanced.advanced.dto.AuthorDTO(a.id, a.name) FROM Author a WHERE a.id = :id")
     AuthorDTO getByIdPersonalizedQuery(@Param("id") Long id);
 
-    @Query("SELECT new com.advanced.advanced.dto.AuthorDTO(t.id, t.name) FROM Author t WHERE t.name = :name")
+    @Query("SELECT new com.advanced.advanced.dto.AuthorDTO(u.id, u.name) FROM Author u WHERE u.name = :name")
     List<AuthorDTO> getByName(@Param("name") String name);
+
+    @Query("SELECT new com.advanced.advanced.dto.AuthorDTO(t.id, t.name) FROM Author t WHERE t.name LIKE CONCAT('%', :word, '%')")
+    List<AuthorDTO> getByWord(@Param("word") String word);
+
+    @Query("SELECT new com.advanced.advanced.dto.AuthorDTO(h.id, h.name) FROM Author h ORDER BY h.id ASC")
+    List<AuthorDTO> getFirstAuthor();
 
 
 

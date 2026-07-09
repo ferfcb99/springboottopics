@@ -22,6 +22,13 @@ public class Author {
 
     private String name;
 
+    private String lastName;
+
+    private Integer age;
+
+    private String street;
+
+
     // ignorar
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books;

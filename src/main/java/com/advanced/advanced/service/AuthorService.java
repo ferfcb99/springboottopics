@@ -17,29 +17,7 @@ public class AuthorService {
     private final AuthorRepository repository;
     private final AuthorMapper mapper;
 
-    public List<AuthorDTO> findAll() {
-        return repository.findAll().stream().map(mapper::toDto).collect(Collectors.toList());
-    }
 
-    public AuthorDTO findById(Long id) {
-        return repository.findById(id).map(mapper::toDto).orElse(null);
-    }
-
-    public AuthorDTO create(AuthorDTO dto) {
-        Author entity = mapper.toEntity(dto);
-        return mapper.toDto(repository.save(entity));
-    }
-
-    public AuthorDTO update(Long id, AuthorDTO dto) {
-        if (!repository.existsById(id)) return null;
-        Author entity = mapper.toEntity(dto);
-        entity.setId(id);
-        return mapper.toDto(repository.save(entity));
-    }
-
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
 
     public AuthorDTO getByIdPersonalizedQuery(Long id){
         AuthorDTO authorDTO = this.repository.getByIdPersonalizedQuery(id);

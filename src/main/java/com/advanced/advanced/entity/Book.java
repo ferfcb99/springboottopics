@@ -19,9 +19,21 @@ public class Book {
 
     private String title;
 
+    private Integer pages;
+
+    private String editorial;
+
+    private String size;
+
+    private Boolean isBestSeller;
+
+    private Boolean isMultilanguage;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
+
+
 
 
 }

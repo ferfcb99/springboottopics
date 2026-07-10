@@ -37,8 +37,21 @@ public class AuthorService {
         List<AuthorDTO> authorDTOS = this.repository.getFirstAuthor();
 
         return authorDTOS.get(0);
+    }
+    public List<AuthorDTO> geyAgeAuthor(){
+        List<AuthorDTO> authorDTOS = this.repository.getAgeAuthor();
 
+        return authorDTOS;
+    }
+    public List<AuthorDTO> getLastNameAuthor(){
+        List<AuthorDTO> getAuthor = this.repository.getLastNameAuthor();
 
+        return getAuthor;
+    }
+    public List<AuthorDTO> getRangeIdAuthor(Integer minId, Integer maxId){
+        List<AuthorDTO> getRange = this.repository.getRangeIdAuthor(minId,maxId);
+
+        return getRange;
     }
 
 }

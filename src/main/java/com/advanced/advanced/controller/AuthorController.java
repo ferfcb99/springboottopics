@@ -45,4 +45,29 @@ public class AuthorController {
 
     }
 
+    // crear un endpoint que obtenga todos los registros de los autores cuya edad este entre 30 y 40 anios
+    @GetMapping(path = "/get-age-author")
+    public ResponseEntity<ResponseAPI<List<AuthorDTO>>> getAgeAuthor(){
+        List<AuthorDTO> authorDTOS = this.service.geyAgeAuthor();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200","Success", authorDTOS));
+    }
+
+    // crear un endpoint que devuelva todos los autores ordenados por apellido
+    @GetMapping(path = "/get-lastName-author")
+    public ResponseEntity<ResponseAPI<List<AuthorDTO>>> getLastNameAuthor(){
+        List<AuthorDTO> authorDTOS = this.service.getLastNameAuthor();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTOS));
+    }
+    // crear un endpoint que devuelva todos los autores entre un rango de ids
+    @GetMapping(path = "/get-range-id-author/{minId}/{maxId}")
+    public ResponseEntity<ResponseAPI<List<AuthorDTO>>> getRangeIdAuthor(@PathVariable("minId") Integer minId, @PathVariable("maxId") Integer maxId){
+        List<AuthorDTO> authorDTOS = this.service.getRangeIdAuthor(minId, maxId);
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", authorDTOS));
+    }
 }

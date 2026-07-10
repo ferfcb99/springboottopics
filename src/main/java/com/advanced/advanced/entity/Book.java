@@ -33,7 +33,4 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
-
-
-
 }

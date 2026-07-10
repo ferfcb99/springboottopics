@@ -35,7 +35,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     List<AuthorDTO> getRangeIdAuthor(@Param("minId") Integer minId, @Param("maxId") Integer maxId);
 
 
-
 }
 
 

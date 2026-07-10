@@ -18,7 +18,6 @@ public class AuthorDTO {
 
 
     public AuthorDTO(Long id, String name){
-
         this.id = id;
         this.name = name;
     }

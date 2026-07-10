@@ -138,3 +138,26 @@ INSERT INTO books (title, pages, editorial, size, is_best_seller, is_multilangua
 VALUES ('The Sign of the Four', 128, 'Spencer Blackett', 'Small', false, true, 10);
 INSERT INTO books (title, pages, editorial, size, is_best_seller, is_multilanguage, author_id) 
 VALUES ('The Hound of the Baskervilles', 256, 'George Newnes', 'Medium', true, true, 10);
+
+
+
+INSERT INTO category (name) VALUES ('Electrónica');
+INSERT INTO category (name) VALUES ('Ropa deportiva');
+INSERT INTO category (name) VALUES ('Hogar');
+INSERT INTO category (name) VALUES ('Calzado');
+
+INSERT INTO product_size (name) VALUES ('S');
+INSERT INTO product_size (name) VALUES ('M');
+INSERT INTO product_size (name) VALUES ('L');
+
+
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Smartphone Pro Max', 'TechBrand', 1200.50, 10, 1, 1);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Camiseta Running', 'FitLife', 25.99, 5, 2, 2);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Pantalón Yoga', 'FitLife', 35.00, 0, 2, 1);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Sofá Minimalista', 'HomeStyle', 850.00, 20, 3, 2);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Lámpara de Escritorio', 'Lumina', 45.00, 0, 3, 3);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Zapatillas Trail', 'RunFast', 110.99, 15, 4, 3);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Auriculares Inalámbricos', 'SoundBeats', 89.90, 5, 1, 2);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Chaqueta de Invierno', 'MountainGear', 150.00, 25, 2, 3);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Tablet Ultra', 'TechBrand', 450.00, 0, 1, 1);
+INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Mesa de Centro', 'WoodCraft', 120.00, 10, 3, 1);

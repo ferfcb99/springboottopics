@@ -67,8 +67,8 @@ public class BookController {
                     .body(new ResponseAPI<>("200", "Success", sizeBook));
         }
     // crear un endpoint que devuelva todos los libros que tengan menos o igual a X paginas y que sean de tamanio Y
-    @GetMapping(path = "/get-pages-book")
-    public ResponseEntity<ResponseAPI<List<BookDTO>>> getPagesBook(@RequestParam Integer maxPage, @RequestParam String size){ // corregir
+    @GetMapping(path = "/get-pages-book/{maxPage}/{size}")
+    public ResponseEntity<ResponseAPI<List<BookDTO>>> getPagesBook(@PathVariable("maxPage") Integer maxPage, @PathVariable("size") String size){ // corregir
         List<BookDTO> pagesBook = this.service.getPagesBook(maxPage,size);
 
         return ResponseEntity.status(HttpStatus.OK)

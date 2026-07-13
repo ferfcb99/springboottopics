@@ -7,6 +7,9 @@ import com.advanced.advanced.entity.Category;
 import com.advanced.advanced.entity.Product;
 import com.advanced.advanced.entity.ProductSize;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductMapper {
 
     public static Product toEntity(ProductDto productDto){
@@ -53,5 +56,23 @@ public class ProductMapper {
         productDto.setProductSizeDto(productSizeDto);
 
         return productDto;
+    }
+    public static List<ProductDto> toListDto(List<Product> products){
+        List<ProductDto> productDtoList = new ArrayList<>();
+
+        for (Product product: products){
+            productDtoList.add(toDto(product));
+        }
+        return productDtoList;
+
+    }
+
+    public static List<Product> toListEntity(List<ProductDto> productDtos){
+        List<Product> products = new ArrayList<>();
+
+        for (ProductDto productDto: productDtos){
+            products.add(toEntity(productDto));
+        }
+        return products;
     }
 }

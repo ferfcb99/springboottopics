@@ -8,10 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v1/product")
@@ -31,6 +30,14 @@ public class ProductController {
         ProductDto productDtoSaved = this.productService.create(productDto);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseAPI<>("200", "Todo bien", productDtoSaved));
+    }
+    @GetMapping(path = "/get-all")
+    public ResponseEntity<ResponseAPI<List<ProductDto>>> getAll(){
+        logger.info("Entro al controlador get all");
+        List<ProductDto> productDtos = this.productService.getAll();
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseAPI<>("200", "Success", productDtos));
     }
 
 }

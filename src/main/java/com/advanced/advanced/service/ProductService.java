@@ -1,7 +1,11 @@
 package com.advanced.advanced.service;
 
 import com.advanced.advanced.dto.ProductDto;
+import com.advanced.advanced.dto.ProductSizeDto;
 import com.advanced.advanced.entity.Category;
+import com.advanced.advanced.entity.Product;
+import com.advanced.advanced.entity.ProductSize;
+import com.advanced.advanced.mapper.ProductMapper;
 import com.advanced.advanced.repository.CategoryRepository;
 import com.advanced.advanced.repository.ProductRepository;
 import com.advanced.advanced.repository.ProductSizeRepository;
@@ -37,12 +41,25 @@ public class ProductService {
 
         Optional<Category> category = this.categoryRepository.findById(productDto.getCategoryDto().getId());
 
+        Optional<ProductSize> productSize = this.productSizeRepository.findById(productDto.getProductSizeDto().getId());
+
         if(category.isEmpty()){
             log.info("Categoria invalida");
             return null;
         }
+        if (productSize.isEmpty()){
+            log.info("tamanio del producto invalido");
+            return null;
+        }
+        log.info("Entro al servicio ProductoDto");
+        Product productToCreate = ProductMapper.toEntity(productDto);
 
-        return null;
+        productToCreate.setCategory(category.get());
+        productToCreate.setProductSize(productSize.get());
+
+        productToCreate = productRepository.save(productToCreate);
+
+        return ProductMapper.toDto(productToCreate);
     }
 
 }

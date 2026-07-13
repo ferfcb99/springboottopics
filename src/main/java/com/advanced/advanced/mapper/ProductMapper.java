@@ -9,7 +9,7 @@ import com.advanced.advanced.entity.ProductSize;
 
 public class ProductMapper {
 
-    public Product toEntity(ProductDto productDto){
+    public static Product toEntity(ProductDto productDto){
 
         Product product = new Product();
         product.setId(productDto.getId());
@@ -20,12 +20,12 @@ public class ProductMapper {
 
 
         Category category = new Category();
-        category.setId(product.getCategory().getId());
-        category.setName(product.getCategory().getName());
+        category.setId(productDto.getCategoryDto().getId());
+        category.setName(productDto.getCategoryDto().getName());
 
         ProductSize productSize = new ProductSize();
-        productSize.setId(product.getProductSize().getId());
-        productSize.setName(product.getProductSize().getName());
+        productSize.setId(productDto.getProductSizeDto().getId());;
+        productSize.setName(productDto.getProductSizeDto().getName());
 
         product.setCategory(category);
         product.setProductSize(productSize);
@@ -33,7 +33,7 @@ public class ProductMapper {
         return product;
     }
 
-    public ProductDto toDto(Product product){
+    public static ProductDto toDto(Product product){
         ProductDto productDto = new ProductDto();
         productDto.setId(product.getId());
         productDto.setName(product.getName());

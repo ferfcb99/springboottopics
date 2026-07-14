@@ -20,6 +20,7 @@ public class ProductMapper {
         product.setBrand(productDto.getBrand());
         product.setPrice(productDto.getPrice());
         product.setDiscount(productDto.getDiscount());
+        product.setQuantityAvailable(productDto.getQuantityAvailable());
 
 
         Category category = new Category();
@@ -43,6 +44,7 @@ public class ProductMapper {
         productDto.setBrand(product.getBrand());
         productDto.setPrice(product.getPrice());
         productDto.setDiscount(product.getDiscount());
+        productDto.setQuantityAvailable(product.getQuantityAvailable());
 
         CategoryDto categoryDto = new CategoryDto();
         categoryDto.setId(product.getCategory().getId());
@@ -51,6 +53,7 @@ public class ProductMapper {
         ProductSizeDto productSizeDto = new ProductSizeDto();
         productSizeDto.setId(product.getProductSize().getId());
         productSizeDto.setName(product.getProductSize().getName());
+
 
         productDto.setCategoryDto(categoryDto);
         productDto.setProductSizeDto(productSizeDto);

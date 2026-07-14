@@ -22,6 +22,8 @@ public class ProductDto {
 
     private Integer discount;
 
+    private Integer quantityAvailable;
+
     private CategoryDto categoryDto;
 
     private ProductSizeDto productSizeDto;

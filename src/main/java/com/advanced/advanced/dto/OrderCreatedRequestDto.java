@@ -15,6 +15,6 @@ public class OrderCreatedRequestDto {
 
     private Long idProduct;
 
-    private Double quantity;
+    private Integer quantity;
 
 }

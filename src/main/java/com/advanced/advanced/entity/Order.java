@@ -10,10 +10,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -34,13 +35,20 @@ public class Order {
 
     @Column(name = "total")
     @Digits(integer = 10, fraction = 2)
-    private Double total;
+    private BigDecimal total;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Order(String id, Long idProduct, Integer quantity, BigDecimal total) {
+        this.id = id;
+        this.idProduct = idProduct;
+        this.quantity = quantity;
+        this.total = total;
+    }
 
     @PrePersist
     public void setCreatedAt(){

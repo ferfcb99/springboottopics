@@ -141,23 +141,36 @@ VALUES ('The Hound of the Baskervilles', 256, 'George Newnes', 'Medium', true, t
 
 
 
-INSERT INTO category (name) VALUES ('Electrónica');
-INSERT INTO category (name) VALUES ('Ropa deportiva');
-INSERT INTO category (name) VALUES ('Hogar');
-INSERT INTO category (name) VALUES ('Calzado');
+INSERT INTO category (name) VALUES ('Electronics');
+INSERT INTO category (name) VALUES ('Clothing');
+INSERT INTO category (name) VALUES ('Home & Kitchen');
+INSERT INTO category (name) VALUES ('Sports & Outdoors');
+INSERT INTO category (name) VALUES ('Books & Media');
 
-INSERT INTO product_size (name) VALUES ('S');
-INSERT INTO product_size (name) VALUES ('M');
-INSERT INTO product_size (name) VALUES ('L');
+INSERT INTO product_size (name) VALUES ('Small');
+INSERT INTO product_size (name) VALUES ('Medium');
+INSERT INTO product_size (name) VALUES ('Large');
+INSERT INTO product_size (name) VALUES ('Extra Large');
+INSERT INTO product_size (name) VALUES ('Standard');
+INSERT INTO product_size (name) VALUES ('One Size');
 
-
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Smartphone Pro Max', 'TechBrand', 1200.50, 10, 1, 1);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Camiseta Running', 'FitLife', 25.99, 5, 2, 2);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Pantalón Yoga', 'FitLife', 35.00, 0, 2, 1);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Sofá Minimalista', 'HomeStyle', 850.00, 20, 3, 2);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Lámpara de Escritorio', 'Lumina', 45.00, 0, 3, 3);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Zapatillas Trail', 'RunFast', 110.99, 15, 4, 3);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Auriculares Inalámbricos', 'SoundBeats', 89.90, 5, 1, 2);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Chaqueta de Invierno', 'MountainGear', 150.00, 25, 2, 3);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Tablet Ultra', 'TechBrand', 450.00, 0, 1, 1);
-INSERT INTO product (name, brand, price, discount, category_id, product_size_id) VALUES ('Mesa de Centro', 'WoodCraft', 120.00, 10, 3, 1);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Smartphone X', 'TechCorp', 699.99, 10, 50, 1, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Running Shoes', 'SpeedFit', 89.50, 0, 120, 4, 3);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Cotton T-Shirt', 'BasicWear', 15.00, 5, 200, 2, 2);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Coffee Maker', 'BrewMaster', 45.99, 15, 30, 3, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Fantasy Novel', 'PaperPress', 12.99, 0, 85, 5, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Winter Jacket', 'ChillGear', 120.00, 20, 45, 2, 4);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Yoga Mat', 'ZenCore', 25.50, 5, 100, 4, 6);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Bluetooth Speaker', 'SoundWave', 55.00, 10, 75, 1, 1);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Blender Pro', 'MixIt', 89.99, 0, 40, 3, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Graphic Novel', 'PaperPress', 18.50, 2, 60, 5, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Wireless Mouse', 'ClickTech', 22.99, 5, 150, 1, 1);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Denim Jeans', 'StyleCo', 49.99, 10, 90, 2, 2);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Tennis Racket', 'CourtKing', 110.00, 15, 25, 4, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Microwave Oven', 'HeatWave', 150.00, 25, 15, 3, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Chef Cookbook', 'CulinaryArts', 30.00, 0, 40, 5, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Smart Watch', 'TechCorp', 199.99, 10, 65, 1, 1);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Sweatpants', 'BasicWear', 29.50, 0, 110, 2, 3);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Dumbbell Set', 'IronGym', 45.00, 5, 55, 4, 6);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('Toaster', 'BrewMaster', 24.99, 0, 80, 3, 5);
+INSERT INTO product (name, brand, price, discount, quantity_available, category_id, product_size_id) VALUES ('History Encyclopedia', 'EduBooks', 45.00, 20, 20, 5, 5);

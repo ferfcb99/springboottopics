@@ -6,6 +6,7 @@ import com.advanced.advanced.entity.Order;
 import com.advanced.advanced.entity.Product;
 import com.advanced.advanced.repository.OrderRepository;
 import com.advanced.advanced.repository.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,7 @@ public class OrderService {
         this.productRepository = productRepository;
     }
 
+    @Transactional
     public OrderCreatedResponseDto createOrder(OrderCreatedRequestDto orderCreatedRequestDto) {
         log.info("The create order function started");
         Optional<Product> product = this.productRepository.findById(orderCreatedRequestDto.getIdProduct());
@@ -37,6 +39,7 @@ public class OrderService {
             return null;
         }
 
+        // Verifica que haya suficiente inventario
         if(orderCreatedRequestDto.getQuantity() > product.get().getQuantityAvailable()){
             log.info("The create order function failed, quantity is greater than product.getQuantityAvailable");
             return null;
@@ -49,11 +52,7 @@ public class OrderService {
                 orderCreatedRequestDto.getQuantity(),
                 BigDecimal.valueOf(orderCreatedRequestDto.getQuantity() * product.get().getPrice())
         );
-
-        if(true){
             orderToSave = this.orderRepository.save(orderToSave);
-            throw new RuntimeException("Error");
-        }
 
         product.get().setQuantityAvailable(product.get().getQuantityAvailable() - orderCreatedRequestDto.getQuantity());
         return new OrderCreatedResponseDto(

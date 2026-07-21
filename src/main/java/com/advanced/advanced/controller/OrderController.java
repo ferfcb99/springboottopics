@@ -23,14 +23,14 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping(path = "create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponseAPI<OrderCreatedResponseDto>> createOrder(
             @RequestBody OrderCreatedRequestDto orderCreatedRequestDto) {
         OrderCreatedResponseDto responseDto = this.orderService.createOrder(orderCreatedRequestDto);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseAPI<>(String.valueOf(HttpStatus.OK), "OK", responseDto));
     }
-    @GetMapping(path = "get-all")
+    @PostMapping(path = "/get-all")
     public ResponseEntity<ResponseAPI<List<OrderDto>>> getAll(){
         List<OrderDto> lista = this.orderService.getAll();
 

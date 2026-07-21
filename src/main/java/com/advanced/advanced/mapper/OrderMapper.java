@@ -28,7 +28,7 @@ public class OrderMapper {
 
         OrderDto orderDto = new OrderDto();
 
-        orderDto.setOrderId(order.getId());
+        orderDto.setOrderId(null);
         orderDto.setIdProduct(order.getIdProduct());
         orderDto.setQuantity(order.getQuantity());
         orderDto.setTotal(order.getTotal());

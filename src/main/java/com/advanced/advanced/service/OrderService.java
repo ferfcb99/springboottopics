@@ -2,8 +2,10 @@ package com.advanced.advanced.service;
 
 import com.advanced.advanced.dto.OrderCreatedRequestDto;
 import com.advanced.advanced.dto.OrderCreatedResponseDto;
+import com.advanced.advanced.dto.OrderDto;
 import com.advanced.advanced.entity.Order;
 import com.advanced.advanced.entity.Product;
+import com.advanced.advanced.mapper.OrderMapper;
 import com.advanced.advanced.repository.OrderRepository;
 import com.advanced.advanced.repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -12,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -63,9 +66,14 @@ public class OrderService {
                 orderToSave.getCreatedAt(),
                 "CREATED");
     }
+    public List<OrderDto> getAll(){
+        List<Order> orders = this.orderRepository.findAll();
+
+        System.out.println("Número de órdenes: " + orders.size());
 
 
+        return OrderMapper.toListDto(orders);
 
-
+    }
 
 }

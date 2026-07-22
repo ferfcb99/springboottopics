@@ -30,7 +30,7 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseAPI<>(String.valueOf(HttpStatus.OK), "OK", responseDto));
     }
-    @PostMapping(path = "/get-all")
+    @GetMapping(path = "/get-all")
     public ResponseEntity<ResponseAPI<List<OrderDto>>> getAll(){
         List<OrderDto> lista = this.orderService.getAll();
 
